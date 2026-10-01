@@ -1,0 +1,85 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 26px;
+}
+.filter {
+  --cut: 7px;
+  min-height: 38px;
+  padding: 0 14px;
+  font: 500 0.8125rem / 1 var(--f-body);
+  color: var(--ink-2);
+  background: var(--card);
+  border: 0;
+  cursor: pointer;
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+}
+.filter:hover {
+  color: var(--ink);
+}
+.filter[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--paper);
+}
+.filter:focus-visible {
+  outline: 2px solid var(--brass-2);
+  outline-offset: -4px;
+}
+.filter span {
+  font-family: var(--f-mono);
+  font-size: 0.6875rem;
+  opacity: 0.7;
+  margin-left: 6px;
+}
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.list li {
+  display: grid;
+  grid-template-columns: 4.6em minmax(0, 1fr);
+  gap: 20px;
+  padding-block: 20px;
+  border-top: 1px solid var(--rule);
+}
+.list li:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+.year {
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-stretch: 87.5%;
+  color: var(--ink-3);
+  padding-top: 0.4em;
+  font-variant-numeric: tabular-nums;
+}
+.title {
+  font-family: var(--f-display);
+  font-size: 1.25rem;
+  line-height: 1.3;
+  font-weight: 500;
+}
+.authors {
+  margin-top: 7px;
+  font-size: var(--t-sm);
+  color: var(--ink-2);
+}
+.authors strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.venue {
+  margin-top: 4px;
+  font-family: var(--f-mono);
+  font-size: 0.6875rem;
+  font-stretch: 87.5%;
+  color: var(--ink-3);
+}
+@media (max-width: 560px) {
+  .list li {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}

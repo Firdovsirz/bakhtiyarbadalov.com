@@ -1,0 +1,111 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(36px, 6vw, 88px) clamp(40px, 6vw, 72px);
+}
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  gap: clamp(28px, 4vw, 64px);
+  align-items: center;
+}
+.copy {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+}
+.name {
+  font-size: var(--t-hero);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.028em;
+  display: flex;
+  flex-direction: column;
+  margin-top: 22px;
+}
+.name b {
+  font-weight: inherit;
+  color: var(--brass);
+}
+.native {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-stretch: 87.5%;
+  color: var(--ink-3);
+  letter-spacing: 0.03em;
+}
+.native span[lang] {
+  color: var(--ink);
+}
+.lede {
+  margin-top: 26px;
+  font-size: var(--t-lg);
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 31em;
+}
+.cta {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 14px;
+  align-items: center;
+}
+.seal {
+  margin: 0;
+  position: relative;
+  min-width: 0;
+}
+.seal figcaption {
+  margin: 14px auto 0;
+  max-width: 30em;
+  text-align: center;
+  font-family: var(--f-mono);
+  font-size: 0.6875rem;
+  font-stretch: 87.5%;
+  line-height: 1.5;
+  color: var(--ink-3);
+}
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .seal {
+    max-width: 440px;
+    width: 100%;
+    margin-inline: auto;
+  }
+}
+
+.record {
+  list-style: none;
+  padding: 28px 0 0;
+  margin: clamp(44px, 6vw, 76px) 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(18px, 3vw, 40px);
+  border-top: 1px solid var(--rule);
+}
+.recValue {
+  font-family: var(--f-display);
+  font-size: clamp(2.1rem, 3.6vw, 3rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: lining-nums;
+}
+.recLabel {
+  margin-top: 10px;
+  font-size: var(--t-sm);
+  line-height: 1.5;
+  color: var(--ink-2);
+  max-width: 21em;
+}
+@media (max-width: 800px) {
+  .record {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

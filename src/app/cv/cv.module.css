@@ -1,0 +1,53 @@
+.main {
+  background: var(--paper-2);
+  padding-block: clamp(20px, 4vw, 40px) clamp(48px, 7vw, 88px);
+}
+.toolbar {
+  max-width: 960px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: clamp(16px, 3vw, 28px);
+}
+.back {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: var(--t-sm);
+  font-weight: 600;
+  text-decoration: none;
+}
+.back:hover {
+  color: var(--brass);
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+/* The toolbar sits on --paper-2, so lift the secondary button onto the card colour. */
+.actions :global(.btn-soft) {
+  background: var(--card);
+}
+.actions :global(.btn-soft:hover) {
+  background: var(--rule);
+}
+.sheet {
+  max-width: 960px;
+  margin-inline: auto;
+  padding-inline: clamp(0px, 3vw, 48px);
+}
+@media print {
+  .main {
+    background: #fff;
+    padding: 0;
+  }
+  .toolbar {
+    display: none;
+  }
+  .sheet {
+    max-width: none;
+    padding: 0;
+  }
+}

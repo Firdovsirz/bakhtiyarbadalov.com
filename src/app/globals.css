@@ -1,0 +1,364 @@
+/* A seal on a ledger. Asymmetric editorial grid; the hero sets a large serif name
+   against the BB seal. Below, the record reads like a ledger: dates in mono,
+   institutions in serif, evidence in sans.
+   Colour: Caspian ink on limestone, one brass accent. Every colour is a token. */
+
+:root {
+  --paper: #edf1ef;
+  --paper-2: #e1e8e5;
+  --card: #f8faf9;
+  --ink: #0f2328;
+  --ink-2: #3e5357;
+  --ink-3: #52676a;
+  --rule: #c8d3d0;
+  --brass: #7e5f18; /* text-safe accent */
+  --brass-2: #b48d3a; /* graphic accent */
+  --on-ink-accent: #ddb566; /* accent on an --ink surface */
+  --sea: #e3eae7;
+  --land: #c6d3cf;
+  --scrim: rgb(8 18 21 / 0.5);
+
+  --f-display: var(--font-display), "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --f-body: var(--font-body), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --f-mono: var(--font-mono), ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --t-xs: 0.75rem;
+  --t-sm: 0.875rem;
+  --t-md: 1.0625rem;
+  --t-lg: 1.25rem;
+  --t-xl: 1.75rem;
+  --t-2xl: clamp(2.1rem, 4.4vw, 3.3rem);
+  --t-hero: clamp(3.3rem, 9vw, 7.4rem);
+
+  --cut: 9px;
+  --header-h: 64px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0b181c;
+    --paper-2: #102127;
+    --card: #132a30;
+    --ink: #e6edea;
+    --ink-2: #b1c1be;
+    --ink-3: #8da19e;
+    --rule: #273d43;
+    --brass: #ddb566;
+    --brass-2: #c9a04b;
+    --on-ink-accent: #7e5f18;
+    --sea: #0f2227;
+    --land: #1e363c;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0b181c;
+  --paper-2: #102127;
+  --card: #132a30;
+  --ink: #e6edea;
+  --ink-2: #b1c1be;
+  --ink-3: #8da19e;
+  --rule: #273d43;
+  --brass: #ddb566;
+  --brass-2: #c9a04b;
+  --on-ink-accent: #7e5f18;
+  --sea: #0f2227;
+  --land: #1e363c;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 20px);
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: var(--t-md);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--f-display);
+  font-weight: 500;
+  line-height: 1.08;
+  margin: 0;
+  text-wrap: balance;
+  letter-spacing: -0.01em;
+}
+p {
+  margin: 0;
+}
+a {
+  color: inherit;
+}
+img,
+svg {
+  max-width: 100%;
+}
+[hidden] {
+  display: none !important;
+}
+:focus-visible {
+  outline: 2px solid var(--brass-2);
+  outline-offset: 3px;
+}
+::selection {
+  background: var(--brass-2);
+  color: var(--paper);
+}
+
+/* Layout primitives */
+.wrap {
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 48px);
+}
+.sec {
+  padding-block: clamp(60px, 8vw, 112px);
+}
+.band {
+  background: var(--paper-2);
+}
+.sec-head {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 18px clamp(24px, 4vw, 64px);
+  align-items: end;
+  margin-bottom: clamp(34px, 5vw, 60px);
+}
+.sec-head h2 {
+  font-size: var(--t-2xl);
+  margin-top: 12px;
+}
+.sec-head .intro {
+  color: var(--ink-2);
+  max-width: 40em;
+  display: grid;
+  gap: 14px;
+}
+@media (max-width: 800px) {
+  .sec-head {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Type primitives */
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-stretch: 87.5%;
+  font-weight: 400;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.fine {
+  margin-top: 12px;
+  font-size: 0.8125rem;
+  color: var(--ink-3);
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  z-index: 100;
+  padding: 10px 14px;
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 600;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 12px;
+}
+
+/* Buttons: corners cut at 45°, like the monogram */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 22px;
+  font: 600 var(--t-sm) / 1 var(--f-body);
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+  transition: background-color 0.2s, color 0.2s;
+}
+.btn:focus-visible {
+  outline: 2px solid var(--brass-2);
+  outline-offset: -5px;
+}
+.btn-ink {
+  background: var(--ink);
+  color: var(--paper);
+}
+.btn-ink:hover {
+  background: var(--brass);
+}
+.btn-soft {
+  background: var(--paper-2);
+  color: var(--ink);
+}
+.btn-soft:hover {
+  background: var(--rule);
+}
+.btn-sm {
+  min-height: 38px;
+  padding: 0 16px;
+  --cut: 7px;
+}
+.btn svg {
+  width: 14px;
+  height: 14px;
+  flex: none;
+}
+.lnk {
+  font-weight: 600;
+  font-size: var(--t-sm);
+  text-decoration: none;
+  border-bottom: 1px solid var(--brass-2);
+  padding-block: 4px;
+}
+.lnk:hover {
+  color: var(--brass);
+}
+
+/* Lists */
+.dia {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 9px;
+}
+.dia li {
+  position: relative;
+  padding-left: 20px;
+}
+.dia li::before {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: 0.6em;
+  width: 7px;
+  height: 7px;
+  background: var(--brass-2);
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+.dia strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.chips li {
+  font-size: 0.8125rem;
+  padding: 5px 11px;
+  background: var(--card);
+  color: var(--ink-2);
+}
+.ledger {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ledger li {
+  display: grid;
+  grid-template-columns: 5.2em minmax(0, 1fr);
+  gap: 18px;
+  padding-block: 13px;
+  border-top: 1px solid var(--rule);
+}
+.ledger li:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+.ledger .y {
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-stretch: 87.5%;
+  color: var(--ink-3);
+  padding-top: 0.35em;
+  font-variant-numeric: tabular-nums;
+}
+.ledger p {
+  color: var(--ink-2);
+  font-size: 0.9375rem;
+}
+.ledger strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+@page {
+  size: A4;
+  margin: 14mm 15mm;
+}
+@media print {
+  /* Paper is always light, whatever the screen theme. Same specificity as the dark blocks, declared later. */
+  :root:not([data-print]),
+  :root[data-theme="dark"] {
+    --paper: #ffffff;
+    --paper-2: #ffffff;
+    --card: #ffffff;
+    --ink: #0f2328;
+    --ink-2: #3e5357;
+    --ink-3: #52676a;
+    --rule: #c8d3d0;
+    --brass: #7e5f18;
+    --brass-2: #b48d3a;
+    color-scheme: light;
+  }
+  html {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  body {
+    background: #fff;
+  }
+  .skip-link {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

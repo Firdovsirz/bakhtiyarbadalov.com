@@ -1,0 +1,103 @@
+.seal {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.ripple {
+  fill: none;
+  stroke: var(--rule);
+  stroke-width: 1;
+}
+.disc {
+  fill: var(--card);
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+.line {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1;
+}
+.tick {
+  stroke: var(--ink-3);
+  stroke-width: 1;
+}
+.major {
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+.bear {
+  stroke-width: 3;
+  stroke-linecap: butt;
+}
+.aztu {
+  stroke: var(--brass-2);
+}
+.study {
+  stroke: var(--ink-3);
+  stroke-width: 1.75;
+}
+.bearings line {
+  animation: tick-in 0.8s ease-out both;
+}
+.starOutline {
+  fill: none;
+  stroke: var(--brass-2);
+  stroke-width: 1.5;
+}
+.starFill {
+  fill: var(--paper-2);
+}
+.ringText {
+  font-family: var(--f-mono);
+  font-size: 14.5px;
+  font-stretch: 87.5%;
+  fill: var(--ink-2);
+  text-transform: uppercase;
+}
+.rotate {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+  animation: spin 180s linear infinite;
+}
+.mark {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 12;
+  stroke-linejoin: miter;
+  stroke-miterlimit: 4;
+}
+/* A brass light runs once along each B. The dash is longer than the path's gap,
+   so at rest (before and after) nothing is visible. */
+.trace {
+  fill: none;
+  stroke: var(--brass-2);
+  stroke-width: 12;
+  stroke-linejoin: miter;
+  stroke-dasharray: 0.07 2;
+  stroke-dashoffset: 0.07;
+  animation: trace 3.2s 0.5s cubic-bezier(0.45, 0.05, 0.3, 1) 1 forwards;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes trace {
+  from {
+    stroke-dashoffset: 0.07;
+  }
+  to {
+    stroke-dashoffset: -1;
+  }
+}
+@keyframes tick-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "origin": { "city": "Baku", "lon": 49.8671, "lat": 40.4093 },
+  "places": [
+    { "id": "depok", "kind": "aztu", "city": "Depok", "country": "Indonesia", "lon": 106.8243, "lat": -6.3627, "institution": "Universitas Indonesia", "text": "Memorandum of understanding signed in May 2025 covering research, exchanges and capacity building." },
+    { "id": "milan", "kind": "aztu", "city": "Milan", "country": "Italy", "lon": 9.2139, "lat": 45.5184, "institution": "University of Milano-Bicocca", "text": "Joint research projects, double-degree programmes and exchanges, May 2026." },
+    { "id": "lahore", "kind": "aztu", "city": "Lahore", "country": "Pakistan", "lon": 74.3564, "lat": 31.579, "institution": "UET Lahore", "text": "Delegation visit with Vice-Rector for Science and Innovation Subhan Namazov." },
+    { "id": "lund", "kind": "study", "city": "Lund", "country": "Sweden", "lon": 13.191, "lat": 55.7047, "institution": "Lund University", "text": "Master's in political science, 2010–2012. Later a Linnaeus-Palme partner he coordinated." },
+    { "id": "valencia", "kind": "study", "city": "Valencia", "country": "Spain", "lon": -0.3763, "lat": 39.4699, "institution": "Universitat Politècnica de València", "text": "Erasmus+ PETRA seminar on teaching and learning, 2018." },
+    { "id": "genoa", "kind": "study", "city": "Genoa", "country": "Italy", "lon": 8.9463, "lat": 44.4056, "institution": "University of Genoa", "text": "TEMPUS training in European Studies, 2013." },
+    { "id": "lodz", "kind": "study", "city": "Łódź", "country": "Poland", "lon": 19.456, "lat": 51.7592, "institution": "University of Social Sciences", "text": "TEMPUS training in EU Studies, 2014." },
+    { "id": "krakow", "kind": "study", "city": "Kraków", "country": "Poland", "lon": 19.945, "lat": 50.0647, "institution": "Cracow University of Economics", "text": "Erasmus+ staff training grant, 2017." },
+    { "id": "debrecen", "kind": "study", "city": "Debrecen", "country": "Hungary", "lon": 21.6273, "lat": 47.5316, "institution": "University of Debrecen", "text": "Erasmus+ training in teaching and learning, 2017." },
+    { "id": "eskisehir", "kind": "study", "city": "Eskişehir", "country": "Türkiye", "lon": 30.5206, "lat": 39.7767, "institution": "Anadolu University", "text": "Erasmus+ teaching mobility grant, 2017." },
+    { "id": "ankara", "kind": "study", "city": "Ankara", "country": "Türkiye", "lon": 32.8597, "lat": 39.9334, "institution": "Gazi University", "text": "Erasmus+ training in teaching and learning, 2017." }
+  ]
+}

@@ -1,0 +1,203 @@
+.reach {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(24px, 4vw, 60px);
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .reach {
+    grid-template-columns: 1fr;
+  }
+}
+.map {
+  position: relative;
+  min-width: 0;
+}
+.map svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.sea {
+  fill: var(--sea);
+  stroke: var(--rule);
+  stroke-width: 1;
+}
+.land {
+  fill: var(--land);
+  stroke: none;
+}
+.ring {
+  fill: none;
+  stroke: var(--ink-3);
+  stroke-opacity: 0.45;
+  stroke-width: 1;
+  stroke-dasharray: 2 4;
+}
+.ringLabel {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  font-stretch: 87.5%;
+  fill: var(--ink-3);
+  paint-order: stroke;
+  stroke: var(--sea);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+.city {
+  transition: opacity 0.2s;
+}
+.ray {
+  stroke-width: 1.25;
+  stroke-linecap: round;
+}
+.aztu .ray {
+  stroke: var(--brass-2);
+}
+.study .ray {
+  stroke: var(--ink-3);
+  stroke-opacity: 0.55;
+}
+.dot {
+  stroke: var(--sea);
+  stroke-width: 2;
+}
+.aztu .dot {
+  fill: var(--brass-2);
+}
+.study .dot {
+  fill: var(--sea);
+  stroke: var(--ink);
+  stroke-width: 1.75;
+}
+.hit {
+  fill: transparent;
+  cursor: pointer;
+}
+.focus .city {
+  opacity: 0.25;
+}
+.focus .city.on {
+  opacity: 1;
+}
+.city.on .ray {
+  stroke-width: 2.5;
+  stroke-opacity: 1;
+}
+.label {
+  font-family: var(--f-body);
+  font-size: 12.5px;
+  font-weight: 600;
+  fill: var(--ink);
+  paint-order: stroke;
+  stroke: var(--sea);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.baku {
+  fill: var(--ink);
+}
+.bakuLabel {
+  font-family: var(--f-display);
+  font-size: 15px;
+  font-weight: 600;
+  fill: var(--ink);
+  paint-order: stroke;
+  stroke: var(--sea);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+.tip {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  max-width: 250px;
+  padding: 10px 12px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  transform: translate(-50%, calc(-100% - 14px));
+}
+.tip b {
+  display: block;
+  font-family: var(--f-display);
+  font-size: 1rem;
+  font-weight: 500;
+}
+.tip span {
+  display: block;
+  font-family: var(--f-mono);
+  font-size: 0.6875rem;
+  font-stretch: 87.5%;
+  opacity: 0.75;
+  margin-block: 2px 4px;
+}
+
+.groupTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-stretch: 87.5%;
+  font-weight: 400;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 6px;
+}
+.list {
+  list-style: none;
+  margin: 0 0 30px;
+  padding: 0;
+}
+.list:last-child {
+  margin-bottom: 0;
+}
+.swatch {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  flex: none;
+}
+.swAztu {
+  background: var(--brass-2);
+}
+.swStudy {
+  border: 1.75px solid var(--ink);
+}
+.place {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2px 14px;
+  padding: 11px 8px;
+  margin-inline: -8px;
+  border-top: 1px solid var(--rule);
+  outline-offset: -2px;
+}
+.place:hover,
+.place:focus-visible,
+.place.on {
+  background: var(--card);
+}
+.place b {
+  font-family: var(--f-display);
+  font-size: 1.0625rem;
+  font-weight: 500;
+}
+.km {
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-stretch: 87.5%;
+  color: var(--ink-3);
+  text-align: right;
+  padding-top: 0.25em;
+  font-variant-numeric: tabular-nums;
+}
+.place p {
+  grid-column: 1 / -1;
+  font-size: var(--t-sm);
+  color: var(--ink-2);
+}

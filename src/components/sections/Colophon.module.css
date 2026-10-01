@@ -1,0 +1,113 @@
+.colophon {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: center;
+}
+@media (max-width: 800px) {
+  .colophon {
+    grid-template-columns: 1fr;
+  }
+}
+.figureCol {
+  display: grid;
+  gap: 16px;
+  justify-items: start;
+  min-width: 0;
+}
+.figure {
+  position: relative;
+  width: 100%;
+  background: var(--card);
+  aspect-ratio: 1 / 1;
+  max-width: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: var(--ink);
+}
+.figure svg {
+  width: 78%;
+  height: auto;
+  overflow: visible;
+}
+.grid line {
+  stroke: var(--brass-2);
+  stroke-width: 0.6;
+  stroke-dasharray: 2 2;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.cross circle {
+  fill: none;
+  stroke: var(--brass);
+  stroke-width: 1.2;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.cross text {
+  font-family: var(--f-mono);
+  font-size: 6px;
+  fill: var(--brass);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.show .grid line {
+  opacity: 0.9;
+}
+.show .cross circle,
+.show .cross text {
+  opacity: 1;
+}
+.toggle {
+  min-height: 40px;
+}
+.title {
+  font-size: var(--t-2xl);
+  margin-top: 12px;
+}
+.body {
+  margin-top: 18px;
+  color: var(--ink-2);
+  max-width: 36em;
+  display: grid;
+  gap: 12px;
+}
+.sizes {
+  margin-top: 34px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: flex-end;
+}
+.sizes figure {
+  margin: 0;
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+}
+.sizes figcaption {
+  font-family: var(--f-mono);
+  font-size: 0.6875rem;
+  font-stretch: 87.5%;
+  color: var(--ink-3);
+}
+.chip {
+  display: grid;
+  place-items: center;
+  width: 112px;
+  height: 112px;
+}
+/* Fixed brand swatches: these show the mark on specific surfaces in either theme. */
+.light {
+  background: #edf1ef;
+  color: #0f2328;
+}
+.deep {
+  background: #0b181c;
+  color: #ddb566;
+}
+.brass {
+  background: #b48d3a;
+  color: #0b181c;
+}

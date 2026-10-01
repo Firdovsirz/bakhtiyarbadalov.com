@@ -1,0 +1,33 @@
+{
+  "name": "bakhtiyarbadalov.com",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal website and CV of Bakhtiyar Badalov, Director of the Research, Development & Reputation Department at Azerbaijan Technical University.",
+  "scripts": {
+    "dev": "node node_modules/next/dist/bin/next dev",
+    "build": "node node_modules/next/dist/bin/next build",
+    "start": "node node_modules/next/dist/bin/next start",
+    "lint": "node node_modules/eslint/bin/eslint.js",
+    "typecheck": "node node_modules/typescript/bin/tsc --noEmit",
+    "generate:map": "node scripts/generate-map.mjs",
+    "generate:brand": "node scripts/generate-brand.mjs",
+    "generate:cv": "node scripts/generate-cv-pdf.mjs",
+    "clean:appledouble": "find . -name '._*' -type f -delete"
+  },
+  "dependencies": {
+    "next": "16.3.7",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "d3-geo": "^3.1.1",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.7",
+    "topojson-client": "^3.1.0",
+    "typescript": "^5",
+    "world-atlas": "^2.0.2"
+  }
+}

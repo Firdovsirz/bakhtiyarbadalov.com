@@ -1,0 +1,120 @@
+.feature {
+  --cut: 24px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(22px, 4vw, 52px);
+  align-items: center;
+  padding: clamp(26px, 4.5vw, 56px);
+  background: var(--ink);
+  color: var(--paper);
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+}
+.eu {
+  width: clamp(96px, 14vw, 168px);
+  height: auto;
+  color: var(--on-ink-accent);
+}
+.featureEyebrow {
+  color: var(--on-ink-accent);
+}
+.feature h3 {
+  font-size: clamp(1.8rem, 3.4vw, 2.7rem);
+  margin-top: 10px;
+}
+.featureBody {
+  margin-top: 16px;
+  max-width: 40em;
+  opacity: 0.86;
+}
+.featureNote {
+  margin-top: 14px;
+  font-size: 0.8125rem;
+  opacity: 0.7;
+  max-width: 44em;
+}
+@media (max-width: 640px) {
+  .feature {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 22px);
+  margin-top: clamp(28px, 4vw, 44px);
+}
+.tile {
+  --cut: 12px;
+  background: var(--card);
+  padding: 24px 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, 0 100%);
+}
+.value {
+  font-family: var(--f-display);
+  font-size: clamp(2.4rem, 4vw, 3.3rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: lining-nums;
+}
+.value small {
+  font-size: 0.42em;
+  letter-spacing: 0;
+  margin-left: 3px;
+  vertical-align: 0.95em;
+  color: var(--ink-2);
+}
+.note {
+  font-size: var(--t-sm);
+  color: var(--ink-2);
+}
+.ladder {
+  margin-top: 6px;
+  width: 100%;
+  height: auto;
+}
+.ladder text {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  font-stretch: 87.5%;
+  fill: var(--ink-3);
+}
+.ladder .on {
+  fill: var(--brass);
+}
+.cell {
+  fill: var(--paper-2);
+}
+.was {
+  fill: var(--rule);
+}
+.is {
+  fill: var(--brass-2);
+}
+@media (max-width: 900px) {
+  .tiles {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grants {
+  margin-top: clamp(36px, 5vw, 56px);
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: clamp(20px, 4vw, 64px);
+}
+.grants h3 {
+  font-size: 1.4rem;
+}
+.grants :global(.fine) {
+  margin-top: 8px;
+}
+@media (max-width: 800px) {
+  .grants {
+    grid-template-columns: 1fr;
+  }
+}

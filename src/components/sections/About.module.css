@@ -1,0 +1,34 @@
+.mandate {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 44px);
+}
+.mandate article {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+.word {
+  font-size: clamp(1.9rem, 3vw, 2.4rem);
+  font-style: italic;
+  font-weight: 400;
+}
+.lead {
+  font-weight: 600;
+}
+.text {
+  color: var(--ink-2);
+}
+.points {
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+  font-size: var(--t-sm);
+  color: var(--ink-2);
+}
+@media (max-width: 900px) {
+  .mandate {
+    grid-template-columns: 1fr;
+  }
+}
